@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+// dont forget to import controller
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +20,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+//pass to controller method 
+Route::get('/dashboard',  
+[DashboardController::class, 'show'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/attendance', function () {
     return view('attendance');
