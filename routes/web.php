@@ -3,6 +3,9 @@
 use App\Http\Controllers\ProfileController;
 // dont forget to import controller
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserController;
+
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +26,15 @@ Route::get('/', function () {
 //pass to controller method 
 Route::get('/dashboard',  
 [DashboardController::class, 'show'])->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/users',  
+[UserController::class, 'show'])->middleware(['auth', 'verified'])->name('users');
+
+Route::get('/users/create',  
+[UserController::class, 'create'])->middleware(['auth', 'verified'])->name('user_create');
+
+Route::get('/users/edit/{id}',  
+[UserController::class, 'edit'])->middleware(['auth', 'verified'])->name('user_edit');
 
 Route::get('/attendance', function () {
     return view('attendance');

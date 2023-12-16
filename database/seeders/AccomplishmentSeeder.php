@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\Accomplishment;
 use Illuminate\Database\Seeder;
 
 class AccomplishmentSeeder extends Seeder
@@ -15,6 +14,6 @@ class AccomplishmentSeeder extends Seeder
      */
     public function run()
     {
-    accomplishment::factory(100)->create();
+        Accomplishment::factory(100)->create();
     }
 }
