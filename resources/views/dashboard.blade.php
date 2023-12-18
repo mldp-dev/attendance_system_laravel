@@ -82,10 +82,10 @@
                     style="background-color: #fff; padding: 10px 20px 10px 20px; height: 500px">
                     <h1 class="font-semibold text-xl tracking-tight mr-6" style="margin-bottom: 20px;">Daily Time
                         Records</h1>
-                    <button type="button"
+                    <a href="{{url('add-accomplishment')}}"><button type="button"
                         class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 
-                        dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 "
-                        onclick="punchIn()"> Add Task</button>
+                        dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 ">
+                        Add Task</button></a>
                     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
                         style="margin-top: 20px;">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -112,9 +112,9 @@
                                     {{ $accomplishments->accomplishment }}
                                 </td>
                                 <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
-                                    <a href="#"
+                                    <a href="{{url('edit-accomplishment')}}"
                                         class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                    <a href="#"
+                                    <a href=""
                                         class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
                                 </td>
                             </tr>

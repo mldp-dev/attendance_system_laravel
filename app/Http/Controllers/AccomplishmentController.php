@@ -8,51 +8,93 @@ use App\Models\Accomplishment;
 class AccomplishmentController extends Controller
 {
     public function index(){
-        $accomplishments = Accomplishment::all();
+        $accomplishments = Accomplishment::get();
 
         return $accomplishments;
     }   
 
-    public function show ($id){
-        $accomplishment = Accomplishment::find($id);
-
-        return $accomplishment;
+    public function addAccomplishment(){
+        return view('add-accomplishment');
     }
 
-    public function create(){
+    public function saveAccomplishment(Request $request){
+        $request->validate([
+            'accomplishment' => 'required'
+        ]);
+        
+        $new_task = $request->new_task;
 
+        $newAccomplishment = new Accomplishment();
+        $newAccomplishment->new_task = $new_task;
+        $newAccomplishment->save();
+
+        return redirect()->back()->with('success','Accomplishment Added Successfully');
     }
 
-    public function store(Request $request){
-        $validated = $request->validate([
+    public function editStudent($id){
+        $data = Accomplishment::where('id', '=', $id)->first();
+        return view('edit-accomplishment', compact('data'));
+    }
+
+    public function updateAccomplishment(Request $request){
+        $request->validate([
             'accomplishment' => 'required'
         ]);
 
-        $accomplishment = Accomplishment::create($validated);
+        $id = $request->id;
+        $accomplishment = $request->accomplishment;
 
-        return $accomplishment;
-
-    }
-
-    public function edit($id){
-        $accomplishment = Accomplishment::find($id);
-
-        return $accomplishment;
-    }
-
-    public function update(Request $request, $id){
-        $validated = $request->validate([
-            'accomplishment' => 'required'
+        Accomplishment::where('id','=',$id)->update([
+            'accomplishment' => $accomplishment
+            
         ]);
 
-        $accomplishment = Accomplishment::where('id', $id)->update($validated);
+        return redirect()->back()->with('success','Student Updated Successfully');
 
-        return $accomplishment;
-    }
 
-    public function destroy($id){
-        $accomplishment = Accomplishment::where('id', $id)->delete();
 
-        return $accomplishment;
-    }
+    
+    // public function show ($id){
+    //     $accomplishment = Accomplishment::find($id);
+
+    //     return $accomplishment;
+    // }
+
+    // public function create(){
+
+    // }
+
+    // public function store(Request $request){
+    //     $validated = $request->validate([
+    //         'accomplishment' => 'required'
+    //     ]);
+
+    //     $accomplishment = Accomplishment::create($validated);
+
+    //     return $accomplishment;
+
+    // }
+
+    // public function edit($id){
+    //     $accomplishment = Accomplishment::find($id);
+
+    //     return $accomplishment;
+    // }
+
+    // public function update(Request $request, $id){
+    //     $validated = $request->validate([
+    //         'accomplishment' => 'required'
+    //     ]);
+
+    //     $accomplishment = Accomplishment::where('id', $id)->update($validated);
+
+    //     return $accomplishment;
+    // }
+
+    // public function destroy($id){
+    //     $accomplishment = Accomplishment::where('id', $id)->delete();
+
+    //     return $accomplishment;
+    // }
+}
 }
