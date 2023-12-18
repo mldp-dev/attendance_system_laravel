@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AccomplishmentController;
+use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\ProfileController;
 // dont forget to import controller
 use App\Http\Controllers\DashboardController;
@@ -54,5 +56,21 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/attendance', [AttendanceController::class,'index']);
+Route::get('/attendance/{id}', [AttendanceController::class,'show']);
+Route::get('/attendance/{id}/edit', [AttendanceController::class,'edit']);
+Route::get('/attendance/', [AttendanceController::class,'create']);
+Route::post('/attendance/', [AttendanceController::class,'store']);
+Route::put('/attendance/{id}/update', [AttendanceController::class,'update']);
+Route::delete('/attendance/{id}', [AttendanceController::class,'destroy']);
+
+Route::get('/accomplishments', [AccomplishmentController::class, 'index']);
+Route::get('/accomplishments/{id}', [AccomplishmentController::class, 'show']);
+Route::get('/accomplishments/{id}/edit', [AccomplishmentController::class, 'edit']);
+Route::get('/accomplishments/', [AccomplishmentController::class, 'create']);
+Route::post('/accomplishments/', [AccomplishmentController::class, 'store']);
+Route::put('/accomplishments/{id}/update', [AccomplishmentController::class, 'update']);
+Route::delete('/accomplishments/{id}', [AccomplishmentController::class, 'destroy']);
 
 require __DIR__.'/auth.php';
