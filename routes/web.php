@@ -57,13 +57,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/attendance', [AttendanceController::class,'index']);
-Route::get('/attendance/{id}', [AttendanceController::class,'show']);
-Route::get('/attendance/{id}/edit', [AttendanceController::class,'edit']);
-Route::get('/attendance/', [AttendanceController::class,'create']);
-Route::post('/attendance/', [AttendanceController::class,'store']);
-Route::put('/attendance/{id}/update', [AttendanceController::class,'update']);
-Route::delete('/attendance/{id}', [AttendanceController::class,'destroy']);
+// Route::get('/attendance', [AttendanceController::class,'index']);
+// Route::get('/attendance/{id}', [AttendanceController::class,'show']);
+// Route::get('/attendance/{id}/edit', [AttendanceController::class,'edit']);
+// Route::get('/attendance/', [AttendanceController::class,'create']);
+// Route::post('/attendance/', [AttendanceController::class,'store']);
+// Route::put('/attendance/{id}/update', [AttendanceController::class,'update']);
+// Route::delete('/attendance/{id}', [AttendanceController::class,'destroy']);
 
 Route::get('/accomplishments', [AccomplishmentController::class, 'index']);
 Route::get('/accomplishments/{id}', [AccomplishmentController::class, 'show']);
