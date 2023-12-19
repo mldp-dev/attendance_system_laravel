@@ -50,4 +50,15 @@ public function create(){
     // Pass data to the 'users.index' view using compact
     return view('users.create');
 }
+
+public function store(Request $request) {
+    // return $request->all();
+    $validateData = $request->validate([
+        'name' => 'required',
+        'email' => 'required',
+    ]);
+    User::create($validateData);
+
+    return 'success';
+}
 }

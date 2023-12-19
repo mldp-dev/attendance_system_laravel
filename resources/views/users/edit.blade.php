@@ -28,8 +28,10 @@
     <!-- <input type="checkbox" class="form-check-input" id="exampleCheck1"> -->
     <!-- <label class="form-check-label" for="exampleCheck1">Check me out</label> -->
   </div>
-  <a class="btn btn-primary btn-m" href="/user/{{ $user->id }}/edit" role="button">Submit</a>
-  <a class="btn btn-primary btn-m" href="/users" role="button">Back</a>
+  <button type="submit" class="text-black btn btn-primary btn-m">Submit</button>
+  <a class="text-black btn btn-primary btn-m" href="/users">Back</a>
+  <!-- <a class="btn btn-primary btn-m" href="/user/{{ $user->id }}/edit" role="button">Submit</a>
+  <a class="btn btn-primary btn-m" href="/users" role="button">Back</a> -->
 </form>
             </div>
         </div>

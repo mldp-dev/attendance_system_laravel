@@ -14,22 +14,24 @@
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="relative overflow-x-auto  mt-6" style="background-color: #fff; padding: 10px">
                 <h1 class="font-semibold text-xl tracking-tight mr-6 ml-7" style="margin-bottom: 20px; text-align:center">Users</h1>
-                <form>
+  <form action="/user" method="POST">
+  @csrf
   <div class="form-group">
-    <label for="exampleInputName1">Name</label>
-    <input type="name" class="form-control" id="exampleInputName1" aria-describedby="emailHelp" placeholder="Enter name" name="name" required>
-    <small id="emailHelp" class="form-text text-muted"></small>
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter name" name="name" required>
   </div>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="emailHelp" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name="email" required>
+  <div class="form-group" class="form-label">
+    <label for="email">Email address</label>
+    <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter name" name="name" required>
   </div>
   <div class="form-check">
     <!-- <input type="checkbox" class="form-check-input" id="exampleCheck1"> -->
     <!-- <label class="form-check-label" for="exampleCheck1">Check me out</label> -->
   </div>
-  <a class="btn btn-primary btn-m danger" role="button">Submit</a>
-  <a class="btn btn-primary btn-m" href="/users" role="button">Back</a>
+  <button type="submit" class="text-black btn btn-primary btn-m">Submit</button>
+  <a class="text-black btn btn-primary btn-m" href="/users">Back</a>
+  <!-- <a class="btn btn-primary btn-m danger" role="button">Submit</a>
+  <a class="btn btn-primary btn-m" href="/users" role="button">Back</a> -->
 </form>
             </div>
         </div>
