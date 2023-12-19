@@ -5,51 +5,49 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-use Illuminate\Support\Facades\DB;
+use App\Models\User;
+
 
 class UserController extends Controller
 {
+    public function index()
+{
+    // Gets the current logged-in user object
+    $user = Auth::user();
 
-    public function store(){
+    // Get all users using Eloquent
+    $users = User::paginate(10);
 
-    }
-    //
-    public function create(){
-        //gets current logged in user object   
-        $user = Auth::user();
+    // Pass data to the 'users.index' view using compact
+    return view('users.index', compact('users', 'user'));
+}
+public function show($id)
+{
+    // Gets the current logged-in user object
+    $user = Auth::user();
 
-        //pass data to view_name.blade.php with data using '->with('key',$value)'
-        return view('users.create')->with('user',$user);
+    // Get all users using Eloquent
+    $users = User::find($id);
 
-    }
+    // Pass data to the 'users.index' view using compact
+    return view('users.show', compact('users', 'user'));
+}
+public function edit($id)
+{
+    // Gets the current logged-in user object
+    $user = Auth::user();
 
-    public function edit($id){
+    // Get all users using Eloquent
+    $users = User::find($id);
 
-        //gets current logged in user object   
-        $user = Auth::user();
-        $user_data =  DB::table('users')->where('id', $id)->first();
-        //pass data to view_name.blade.php with data using '->with('key',$value)'
-        return view('users.edit')->with('user',$user)->with('user_data',$user_data);
+    // Pass data to the 'users.index' view using compact
+    return view('users.edit', compact('users', 'user'));
+}
+public function create(){
+    // Gets the current logged-in user object
+    $user = Auth::user();
 
-    }
-
-    public function show(){
-        //gets current logged in user object   
-        $user = Auth::user();
-
-        //get all attendances
-        $users = DB::table('users')->get();
-
-        //pass data to view_name.blade.php with data using '->with('key',$value)'
-        return view('users.index')->with('users',$users)->with('user',$user);
-
-    }
-
-    public function update(){
-
-    }
-
-    public function delete(){
-
-    }
+    // Pass data to the 'users.index' view using compact
+    return view('users.create');
+}
 }

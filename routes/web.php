@@ -29,18 +29,29 @@ Route::get('/', function () {
 Route::get('/dashboard',  
 [DashboardController::class, 'show'])->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/users',  
-[UserController::class, 'show'])->middleware(['auth', 'verified'])->name('users');
+// Route::get('/users',  
+// [UserController::class, 'index'])->middleware(['auth', 'verified'])->name('users');
 
-Route::get('/users/create',  
-[UserController::class, 'create'])->middleware(['auth', 'verified'])->name('user_create');
+// Route::get('/users/create',  
+// [UserController::class, 'create'])->middleware(['auth', 'verified'])->name('user_create');
 
-Route::get('/users/edit/{id}',  
-[UserController::class, 'edit'])->middleware(['auth', 'verified'])->name('user_edit');
+// Route::get('/users/edit/{id}',  
+// [UserController::class, 'edit'])->middleware(['auth', 'verified'])->name('user_edit');
+
+// Route::get('/users/show/{id}',  
+// [UserController::class, 'show'])->middleware(['auth', 'verified'])->name('user_show');
+
+
+
+
 
 Route::get('/attendance', function () {
     return view('attendance');
 })->middleware(['auth', 'verified'])->name('attendance');
+
+Route::post('/attendance/punchIn',  
+[DashboardController::class, 'punchIn'])->middleware(['auth', 'verified'])->name('punchIn');
+
 
 Route::get('/accomplishment', function () {
     return view('accomplishment');
@@ -57,6 +68,25 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// route for the user
+// get request
+Route::get('/users', [UserController::class,'index']);
+Route::get('/user/{id}', [UserController::class,'show']);
+Route::get('/user/{id}/edit', [UserController::class,'edit']);
+Route::get('/user', [UserController::class,'create']);
+//post request
+Route::post('/user', [UserController::class,'store']);
+Route::put('/user/{id}/update', [UserController::class,'update']);
+Route::delete('/user/{id}', [UserController::class,'destroy']);
+
+// Route::get('/user', function() {
+//     $user = App\Models\Users::find(auth()->user()->id);
+
+//     return $user->role->role;
+// })
+
+
+//route for the attendance
 // Route::get('/attendance', [AttendanceController::class,'index']);
 // Route::get('/attendance/{id}', [AttendanceController::class,'show']);
 // Route::get('/attendance/{id}/edit', [AttendanceController::class,'edit']);

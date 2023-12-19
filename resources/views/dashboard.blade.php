@@ -24,7 +24,12 @@
             <div class="relative overflow-x-auto  mt-6" style="background-color: #fff; padding: 10px">
                 <h1 class="font-semibold text-xl tracking-tight mr-6 ml-7" style="margin-bottom: 20px;">Daily Time Records</h1>
                 <button type="button" class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-                    style="margin-bottom: 20px;" onclick="punchIn()">Punch In</button>
+                    style="margin-bottom: 20px;" onclick="punchIn()">Punch In 
+                </button>
+                    <form action="/attendance/punchIn" id="punchInForm" method="POST" style="display:none">
+                    @csrf    
+                    <input type="submit" value="">
+                    </form>
                 <button type="button" class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
                     style="margin-bottom: 20px;" onclick>Punch Out</button>
                 <table class="w-full text-sm text-left text-black">
@@ -54,7 +59,7 @@
                                     {{ $attendances->location }}
                                 </td>
                                 <td class="px-6 py-4">
-                                {{ $attendances->time_in }}
+                                {{ date_format( date_create($attendances->time_in), 'h:i A')  }}
                                 </td>
                                 <td class="px-6 py-4">
                                 {{ $attendances->time_out }}
@@ -106,5 +111,14 @@
                         </div>
                         </div>
                         </div>
+
+                        <script>
+                            function punchIn(){
+                                if(confirm('Punch in for today?')){
+                                    document.getElementById('punchInForm').submit();
+                                }
+                                
+                            }
+                        </script>
 
 </x-app-layout>
