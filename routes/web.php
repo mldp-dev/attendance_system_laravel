@@ -37,6 +37,9 @@ Route::get('/attendance', function () {
 Route::post('/attendance/punchIn',  
 [DashboardController::class, 'punchIn'])->middleware(['auth', 'verified'])->name('punchIn');
 
+Route::post('/attendance/punchOut',  
+[DashboardController::class, 'punchOut'])->middleware(['auth', 'verified'])->name('punchOut');
+
 
 Route::get('/accomplishment', function () {
     return view('accomplishment');

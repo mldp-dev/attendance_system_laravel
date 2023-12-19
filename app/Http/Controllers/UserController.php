@@ -27,10 +27,10 @@ public function show($id)
     $user = Auth::user();
 
     // Get all users using Eloquent
-    $users = User::find($id);
+    $user_data = User::find($id);
 
     // Pass data to the 'users.index' view using compact
-    return view('users.show', compact('users', 'user'));
+    return view('users.show', compact('user_data', 'user'));
 }
 public function edit($id)
 {
@@ -56,9 +56,11 @@ public function store(Request $request) {
     $validateData = $request->validate([
         'name' => 'required',
         'email' => 'required',
-    ]);
-    User::create($validateData);
+        'password' => '',
 
-    return 'success';
+    ]);
+    $user = User::create($validateData);
+
+    return redirect('/user'.'/'.$user->id)->with('Success', 'Success!');
 }
 }

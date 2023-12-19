@@ -30,17 +30,33 @@ class DashboardController extends Controller
         return view('dashboard')->with('user',$user)->with('attendances',$attendances)->with('accomplishments',$accomplishments)->with('currentPunchIn',$currentPunchIn);
     }
 
-        // create method for controller
-        public function punchIn()
-        {
-            DB::table('attendances')->insert([
-                'time_in' => date('Y-m-d H:i:s'),
-                'time_out' => null,
-                'date' => date('Y-m-d H:i:s'),
-                'location' => 'Home',
-                'created_at' => date('Y-m-d H:i:s') 
-            ]);
+    // create method for controller
+    public function punchIn()
+    {
+        DB::table('attendances')->insert([
+            'time_in' => date('Y-m-d H:i:s'),
+            'time_out' => null,
+            'date' => date('Y-m-d H:i:s'),
+            'location' => 'Home',
+            'created_at' => date('Y-m-d H:i:s') 
+        ]);
 
-            return back()->withInput();
+        return back()->withInput();
+    }
+
+    // create method for controller
+    public function punchOut()
+    {
+        $latestAttendance = DB::table('attendances')->where('created_at', '==', date('Y-m-d'))->get();
+        if (!$latestAttendance->isEmpty()) {
+            // Result is empty
+            // Your logic here
+            DB::table('attendances')->where('id', $latestAttendance->id)->update([
+            'time_out' => date('Y-m-d H:i:s')
+            ]);
+        } else {
+
         }
+        return back()->withInput();
+    }
 }
