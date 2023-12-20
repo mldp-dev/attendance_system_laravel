@@ -19,14 +19,32 @@
   <div class="form-group">
     <label for="name" class="form-label">Name</label>
     <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter name" name="name" required>
+    <br>
+    @error('name')
+    <p class="alert alert-danger">
+      {{ $message}}
+    </p>
+    @enderror
   </div>
   <div class="form-group" class="form-label">
     <label for="email">Email address</label>
-    <input type="text" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter name" name="email" required>
+    <input type="text" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" name="email" required>
+    <br>
+    @error('email')
+    <p class="alert alert-danger">
+      {{ $message}}
+    </p>
+    @enderror
   </div>
   <div class="form-group" class="form-label">
     <label for="email">Password</label>
-    <input type="text" class="form-control" id="password" aria-describedby="emailHelp" placeholder="Enter name" name="password" required>
+    <input type="password" class="form-control" id="password" aria-describedby="emailHelp" placeholder="Enter password" name="password" required>
+    <br>
+    @error('email')
+    <p class="alert alert-danger">
+      {{ $message}}
+    </p>
+    @enderror
   </div>
   <div class="form-check">
     <!-- <input type="checkbox" class="form-check-input" id="exampleCheck1"> -->

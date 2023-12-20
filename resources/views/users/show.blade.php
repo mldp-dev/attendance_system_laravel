@@ -34,7 +34,7 @@
   <p>{{ $user_data->created_at }}</p>
   <p class="lead">
     <br>
-    <a class="btn btn-primary btn-m" href="/user/{{ $user->id }}/edit" role="button">Edit</a>
+    <a class="btn btn-primary btn-m" href="/user/{{ $user_data->id }}/edit" role="button">Edit</a>
   </p>
 </div>
 

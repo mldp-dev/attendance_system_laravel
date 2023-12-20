@@ -38,10 +38,10 @@ public function edit($id)
     $user = Auth::user();
 
     // Get all users using Eloquent
-    $users = User::find($id);
+    $user_data = User::find($id);
 
     // Pass data to the 'users.index' view using compact
-    return view('users.edit', compact('users', 'user'));
+    return view('users.edit', compact('user_data', 'user'));
 }
 public function create(){
     // Gets the current logged-in user object
@@ -61,6 +61,6 @@ public function store(Request $request) {
     ]);
     $user = User::create($validateData);
 
-    return redirect('/user'.'/'.$user->id)->with('Success', 'Success!');
+    return redirect('/users'.'/'.$user->id)->with('Success', 'Success!');
 }
 }

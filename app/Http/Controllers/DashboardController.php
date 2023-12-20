@@ -19,7 +19,8 @@ class DashboardController extends Controller
         $user = Auth::user();
 
         //get all attendances
-        $attendances = DB::table('attendances')->get();
+        $attendances = DB::table('attendances')->orderBy('created_at', 'desc')
+        ->get();
         //get all attendances
         $accomplishments = DB::table('accomplishments')->get();
 
