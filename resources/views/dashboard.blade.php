@@ -57,7 +57,7 @@
                             @foreach($attendances as $attendances)
                             <tr>
                                 <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
-                                    {{ $attendances->created_at }}
+                                {{ date_format(date_create($attendances->time_in), 'l, F j, Y') }}
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $attendances->location }}

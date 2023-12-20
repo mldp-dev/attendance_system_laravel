@@ -56,11 +56,27 @@ public function store(Request $request) {
     $validateData = $request->validate([
         'name' => 'required',
         'email' => 'required',
-        'password' => '',
+        'password' => 'required',
 
     ]);
+
     $user = User::create($validateData);
 
-    return redirect('/users'.'/'.$user->id)->with('Success', 'Success!');
+    return redirect('/user/'.$user->id)->with('success', 'Success!');
+}
+
+//new method
+public function update(Request $request, $id) {
+    // return $request->all();
+    $validateData = $request->validate([
+        'name' => 'required',
+        'email' => 'required',
+        'password' => 'required',
+
+    ]);
+
+    //$user = User::create($validateData);
+
+    return redirect('/user/'.$user->id)->with('Success', 'Success!'); 
 }
 }

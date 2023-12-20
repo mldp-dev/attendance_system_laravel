@@ -18,7 +18,7 @@
   @csrf
   <div class="form-group">
     <label for="name" class="form-label">Name</label>
-    <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter name" name="name" required>
+    <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter name" name="name" >
     <br>
     @error('name')
     <p class="alert alert-danger">
@@ -28,7 +28,7 @@
   </div>
   <div class="form-group" class="form-label">
     <label for="email">Email address</label>
-    <input type="text" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" name="email" required>
+    <input type="text" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" name="email" >
     <br>
     @error('email')
     <p class="alert alert-danger">
@@ -38,19 +38,20 @@
   </div>
   <div class="form-group" class="form-label">
     <label for="email">Password</label>
-    <input type="password" class="form-control" id="password" aria-describedby="emailHelp" placeholder="Enter password" name="password" required>
+    <input type="password" class="form-control" id="password" aria-describedby="emailHelp" placeholder="Enter password" name="password" >
     <br>
-    @error('email')
+    @error('password')
     <p class="alert alert-danger">
       {{ $message}}
     </p>
     @enderror
+
   </div>
   <div class="form-check">
     <!-- <input type="checkbox" class="form-check-input" id="exampleCheck1"> -->
     <!-- <label class="form-check-label" for="exampleCheck1">Check me out</label> -->
   </div>
-  <a class="text-black btn btn-primary btn-m" onclick="submitForm()">Submit</a>
+  <button type="submit" class="text-black btn btn-primary btn-m" >Submit</button>
   <a class="text-black btn btn-primary btn-m" href="/users">Back</a>
   <!-- <a class="btn btn-primary btn-m danger" role="button">Submit</a>
   <a class="btn btn-primary btn-m" href="/users" role="button">Back</a> -->
