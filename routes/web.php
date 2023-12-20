@@ -44,10 +44,10 @@ Route::post('/attendance/punchOut',
 Route::get('/accomplishment', function () {
     return view('accomplishment');
 })->middleware(['auth', 'verified'])->name('accomplishment');
-Route::get('/add-accomplishment', [AccomplishmentController::class,'addAccomplishment']);
-Route::post('/save-accomplishment', [AccomplishmentController::class,'saveAccomplishment']);
-Route::post('/edit-accomplishment/{id}', [AccomplishmentController::class,'editAccomplishment']);
-Route::post('/update-accomplishment', [AccomplishmentController::class,'updateAccomplishment']);
+// Route::get('/add-accomplishment', [DashboardController::class,'addAccomplishment'])->name('addAccomplishment');
+// Route::post('/save-accomplishment', [DashboardController::class,'saveAccomplishment']);
+// Route::post('/edit-accomplishment/{id}', [DashboardController::class,'editAccomplishment']);
+// Route::post('/update-accomplishment', [DashboardController::class,'updateAccomplishment']);
 
 Route::get('/faqs', function () {
     return view('faqs');
@@ -74,3 +74,7 @@ Route::delete('/user/{id}', [UserController::class,'destroy']);
 
 //route for the attendance
 require __DIR__.'/auth.php';
+
+//route for the accomplishment
+// get request
+
