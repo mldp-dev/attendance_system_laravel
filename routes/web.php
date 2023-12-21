@@ -74,9 +74,9 @@ require __DIR__.'/auth.php';
 
 //route for the accomplishment
 // get request
-Route::get('/accomplishment/{id}', [DashboardController::class, 'showAccomplishment']);
-Route::get('/accomplishment/{id}/edit', [DashboardController::class, 'editAccomplishment']);
-Route::get('/newAccomplishment/', [DashboardController::class, 'createAccomplishment']);
-//post request
-Route::post('/newAccomplishment/', [DashboardController::class, 'storeAccomplishment']);
-Route::put('/accomplishment/{id}/update', [DashboardController::class, 'updateAccomplishment'])->name('accomplishment.update');
+// Route::get('/accomplishment/{id}', [DashboardController::class, 'showAccomplishment']);
+// Route::get('/accomplishment/{id}/edit', [DashboardController::class, 'editAccomplishment']);
+// Route::get('/newAccomplishment/', [DashboardController::class, 'createAccomplishment']);
+// //post request
+// Route::post('/newAccomplishment/', [DashboardController::class, 'storeAccomplishment']);
+// Route::put('/accomplishment/{id}/update', [DashboardController::class, 'updateAccomplishment'])->name('accomplishment.update');

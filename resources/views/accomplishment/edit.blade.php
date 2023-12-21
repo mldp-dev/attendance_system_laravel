@@ -1,4 +1,4 @@
-<x-app-layout>
+<!-- <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Accomplishments') }}
@@ -17,7 +17,7 @@
                                     <h1 class="font-semibold text-xl tracking-tight mr-6 ml-7"
                                         style="margin-bottom: 20px; text-align:center">Accomplishments</h1>
 
-                                    <!-- should be update endpoint (refer to web.php)and PUT method -->
+                                    should be update endpoint (refer to web.php)and PUT method 
                                     <form action="/accomplishment/{{$accomplishment->id}}" method="POST" id="editAccomplishmentForm">
                                         @csrf
                                         @method('PUT')
@@ -27,13 +27,11 @@
                                                 >{{ $accomplishment->accomplishment }}</textarea>
                                         </div>
                                         <div class="form-check">
-                                            <!-- <input type="checkbox" class="form-check-input" id="exampleCheck1"> -->
-                                            <!-- <label class="form-check-label" for="exampleCheck1">Check me out</label> -->
+                                         
                                         </div>
                                         <button type="submit" class="text-black btn btn-primary btn-m">Submit</button>
                                         <a class="text-black btn btn-primary btn-m" href="/dashboard">Back</a>
-                                        <!-- <a class="btn btn-primary btn-m danger" role="button">Submit</a>
-  <a class="btn btn-primary btn-m" href="/users" role="button">Back</a> -->
+                                    
                                     </form>
                                     <script>
                                         function submitForm() {
@@ -53,4 +51,4 @@
             </div>
         </div>
 
-</x-app-layout>
+</x-app-layout> -->

@@ -66,44 +66,43 @@ class DashboardController extends Controller
     }
 
     //route for accomplishment
-    public function showAccomplishment($id) {
-        $accomplishment = Accomplishment::find($id);
+//     public function showAccomplishment($id) {
+//         $accomplishment = Accomplishment::find($id);
 
-        return view('accomplishment.show', compact('accomplishment'));
-    }
+//         return view('accomplishment.show', compact('accomplishment'));
+//     }
 
-    public function editAccomplishment($id) {
-        $accomplishment = Accomplishment::find($id);
+//     public function editAccomplishment($id) {
+//         $accomplishment = Accomplishment::find($id);
 
-        return view('accomplishment.edit', compact('accomplishment'));
-    }
-    public function createAccomplishment($id) {
-        $accomplishment = Accomplishment::find($id);
+//         return view('accomplishment.edit', compact('accomplishment'));
+//     }
+//     public function createAccomplishment($id) {
+//         $accomplishment = Accomplishment::find($id);
 
-        return view('accomplishment.create', compact('accomplishment'));
-    }
+//         return view('accomplishment.create', compact('accomplishment'));
+//     }
 
-    public function storeAccomplishment(Request $request) {
-        $validatedData = $request->validate([
-            'accomplishment' => 'required'
-        ]);
+//     public function storeAccomplishment(Request $request) {
+//         $validatedData = $request->validate([
+//             'accomplishment' => 'required'
+//         ]);
 
-        Accomplishment::create($validatedData);
+//         Accomplishment::create($validatedData);
 
-        return 'success';
-    }
+//         return 'success';
+//     }
 
-    public function updateAccomplishment($id, Request $request) {
-        $validatedData = $request->validate([
-            'accomplishment' => 'required'
-        ]);
+//     public function updateAccomplishment($id, Request $request) {
+//         $validatedData = $request->validate([
+//             'accomplishment' => 'required'
+//         ]);
 
-        $accomplishment = Accomplishment::find($id);
+//         $accomplishment = Accomplishment::find($id);
 
-        // Pass data to the 'users.index' view using compact
-        return view('accomplishment.edit', compact('accomplishment'));
+//         // Pass data to the 'users.index' view using compact
+//         return view('accomplishment.edit', compact('accomplishment'));
         
-    }
+//     }
 }
-
 

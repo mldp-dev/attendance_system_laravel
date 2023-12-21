@@ -1,4 +1,4 @@
-<x-app-layout>
+<!-- <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Users') }}
@@ -54,13 +54,11 @@
 
                                         </div>
                                         <div class="form-check">
-                                            <!-- <input type="checkbox" class="form-check-input" id="exampleCheck1"> -->
-                                            <!-- <label class="form-check-label" for="exampleCheck1">Check me out</label> -->
+                                            
                                         </div>
                                         <button type="submit" class="text-black btn btn-primary btn-m">Submit</button>
                                         <a class="text-black btn btn-primary btn-m" href="/users">Back</a>
-                                        <!-- <a class="btn btn-primary btn-m danger" role="button">Submit</a>
-  <a class="btn btn-primary btn-m" href="/users" role="button">Back</a> -->
+                                        
                                     </form>
                                     <script>
                                         function submitForm() {
@@ -80,4 +78,4 @@
             </div>
         </div>
 
-</x-app-layout>
+</x-app-layout> -->
