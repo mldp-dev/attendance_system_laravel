@@ -10,6 +10,10 @@ class Accomplishment extends Model
     use HasFactory;
     protected $table='accomplishments';
 
+    protected $fillable = [
+        'accomplishment'
+    ];
+
     public function accomplishments(){
         return $this ->hasMany(Accomplishment::class);
     }

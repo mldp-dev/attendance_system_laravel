@@ -23,7 +23,10 @@ class DashboardController extends Controller
         $attendances = DB::table('attendances')->orderBy('created_at', 'desc')
             ->get();
         //get all attendances
-        $accomplishments = DB::table('accomplishments')->get();
+        $accomplishments = DB::table('accomplishments')->orderBy('created_at', 'desc')
+        ->get();
+
+        $accomplishments = DB::table('accomplishments')->paginate(10);
 
         $currentPunchIn = DB::table('attendances')->whereDate('created_at', '=', date('Y-m-d'));
 
@@ -62,73 +65,45 @@ class DashboardController extends Controller
         return back()->withInput();
     }
 
-    // // Accomplishment Controller
-    // public function showAttendance($id)
-    // {
-    //     // Gets the current logged-in user object
-    //     $user = Auth::user();
+    //route for accomplishment
+    public function showAccomplishment($id) {
+        $accomplishment = Accomplishment::find($id);
 
-    //     // Get all accomplishments using Eloquent
-    //     $accomplishments_data = Accomplishment::find($id);
+        return view('accomplishment.show', compact('accomplishment'));
+    }
 
-    //     // Pass data to the 'users.index' view using compact
-    //     return view('users.show', compact('user_data', 'user'));
-    // }
-    // public function edit($id)
-    // {
-    //     // Gets the current logged-in user object
-    //     $user = Auth::user();
+    public function editAccomplishment($id) {
+        $accomplishment = Accomplishment::find($id);
 
-    //     // Get all users using Eloquent
-    //     $user_data = User::find($id);
+        return view('accomplishment.edit', compact('accomplishment'));
+    }
+    public function createAccomplishment($id) {
+        $accomplishment = Accomplishment::find($id);
 
-    //     // Pass data to the 'users.index' view using compact
-    //     return view('users.edit', compact('user_data', 'user'));
-    // }
-    // public function create()
-    // {
-    //     // Gets the current logged-in user object
-    //     $user = Auth::user();
+        return view('accomplishment.create', compact('accomplishment'));
+    }
 
-    //     // Pass data to the 'users.index' view using compact
-    //     return view('users.create');
-    // }
+    public function storeAccomplishment(Request $request) {
+        $validatedData = $request->validate([
+            'accomplishment' => 'required'
+        ]);
 
-    // public function store(Request $request)
-    // {
-    //     // return $request->all();
-    //     $validateData = $request->validate([
-    //         'name' => 'required',
-    //         'email' => 'required',
-    //         'password' => 'required',
+        Accomplishment::create($validatedData);
 
-    //     ]);
+        return 'success';
+    }
 
-    //     $user = User::create($validateData);
+    public function updateAccomplishment($id, Request $request) {
+        $validatedData = $request->validate([
+            'accomplishment' => 'required'
+        ]);
 
-    //     return redirect('/user/' . $user->id)->with('success', 'Success!');
-    // }
+        $accomplishment = Accomplishment::find($id);
 
-    // //new method
-    // public function update(Request $request, $id)
-    // {
-    //     // return $request->all();
-    //     $validateData = $request->validate([
-    //         'name' => 'required',
-    //         'email' => 'required',
-    //         'password' => 'required',
-
-    //     ]);
-
-    //     //$user = User::create($validateData);
-
-    //     return redirect('/user/' . $user->id)->with('Success', 'Success!');
-    // }
-
-
-
-
-
+        // Pass data to the 'users.index' view using compact
+        return view('accomplishment.edit', compact('accomplishment'));
+        
+    }
 }
 
 
